@@ -17,12 +17,13 @@ body {
   }
 
 p {
-    font-size: 24px;
+    font-size: 20px;
     max-width: 45%; 
     /* margin: 0px auto;  */
     margin-top: 1%;
-    margin-bottom: 3%;
+    margin-bottom: 2%;
     overflow: hidden;
+    line-height: 1.5;
 }
 .btn {
      background-color: #ffffff; /* Green */
@@ -154,7 +155,7 @@ img {
 .along_title {
     text-align: center;
     font-weight:bold;
-    font-size: 135%;
+    font-size: 125%;
     font-family: 'Lora', serif;
 }
 
