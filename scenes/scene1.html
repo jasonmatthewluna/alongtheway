@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scene 1</title>
-    <script src="noframework.waypoints.min.js"></script>
+    <script src="../noframework.waypoints.min.js"></script>
     <link rel="stylesheet" href="../styles.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -17,7 +17,10 @@
     <div class = "top_padding"></div>
 
     <div class = "row_container" >
+        <!-- Left item -->
         <div class = "item"></div>
+
+        <!-- Middle item -->
         <div class = "item_content">
             <p class = "scene_title">
                 SCENE 1
@@ -31,12 +34,11 @@
             </h1>
             
             <div class = "content_padding"></div>
-            
-            <object type="image/svg+xml" data="../resources/large_img_place.svg">
+            <!-- <object type="image/svg+xml" data="../resources/large_img_place.svg">
                 Your browser does not support SVG
             </object>
 
-            <div class = "img_padding"></div>
+            <div class = "img_padding"></div> -->
 
             <!-- Start of scene1 content -->
             <p class = "line_padding">
@@ -89,32 +91,46 @@
 
             <div class = "rag_padding"></div>
             <div class = "row_container">
-                <object class = "item" type="image/svg+xml" data="../resources/img_place.svg">
-                    Your browser does not support SVG
-                </object>
-        
-                <object class = "item" type="image/svg+xml" data="../resources/img_place.svg">
-                    Your browser does not support SVG
-                </object>
-            </div>
-        
-            
-            <div class="row_container">
-                <p class="item semi_bold btn btn-center" onclick= "location.href = 'scene2.html'; ">
-                  [RAG 1]  
-                </p>
-                <P class="item semi_bold btn btn-center" onclick= "location.href = 'scene2.html'; ">
-                  [RAG 2]  
-                </P>
+                <div class="container">
+                    <img class = "item" src="../resources/Rag 1.png">
+                    <p class="item semi_bold btn btn-center" style="flex-grow: 0;" onclick= "scene1_append('clean')">
+                        [ RAG 1 ]  
+                    </p>
+                </div>
+
+                <div class="container">
+                    <img class = "item" src="../resources/Rag 2.png">
+                    <p class="item semi_bold btn btn-center" style="flex-grow: 0;" onclick= "scene1_append('dirty')">
+                        [  RAG 2 ]  
+                    </p>
+                </div>
+
             </div>
 
+            <!-- Text depending on what rag you choose -->
+            <div id = "rag">
+            </div>
+
+            <!-- Text depending on if you eavesdrop -->
+            <div id = "eavesdrop">
+            </div>
+
+            <!-- Text depending on if you choose to feed cat -->
+            <div id = "cat">
+            </div>
+
+            <!-- Text for comforting, does not change depending on choice -->
+            <div id = "comforting">
+            </div>
+
+            <div id = "feelings">
+            </div>
 
         </div>
+        <!-- Right item -->
         <div class = "item"></div>
     </div>
 
-    <p>
-
-    </p>
+    <script src="../scripts.js"></script> 
 </body>
 </html>

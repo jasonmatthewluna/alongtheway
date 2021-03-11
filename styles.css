@@ -110,14 +110,14 @@ p {
     color: rgb(0, 0, 0);
 }
 
-img {
+/* img {
     opacity: 0;
     transition: all 0.25s ease-in;
 }
 
 .img_chosen_class{
     opacity: 1;
-}
+} */
 
 .sticky {
     position: fixed;
@@ -160,6 +160,7 @@ img {
     flex-grow: 1; 
     text-align:center;
     justify-content: center;
+    align-items: center;
     /* max-width: 25%; */
 }
 
@@ -372,4 +373,14 @@ textarea::placeholder{
       position: absolute;
       top:133px;
       left: 101px;
+  }
+
+  #milk_choice img:hover{
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition:.5s;
+    box-shadow: 0 0 20px rgba(47, 159, 245, 0.7); 
+    cursor: pointer;
   }
