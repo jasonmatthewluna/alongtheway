@@ -74,7 +74,7 @@ p {
     height: 0.2rem;
     left:10%;
     bottom:0.3rem;
-    background: rgb(0, 107, 156);
+    background: rgb(2, 175, 255);
 }
 
 .btn-center::after {
@@ -368,11 +368,15 @@ textarea::placeholder{
       cursor: pointer;
   }
 
-  /* Back Button */
+  /* Back Button for about*/
   .back_btn{
       position: absolute;
       top:133px;
       left: 101px;
+  }
+
+  .back_btn:hover{
+    cursor: pointer;
   }
 
   #milk_choice img:hover{

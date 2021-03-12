@@ -3,9 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Scene 3</title>
+    <script src="noframework.waypoints.min.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"></head>
+    <link href="<link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+
 </head>
 <body>
+    <div class = "top_padding"></div>
+    <div class = "row_container" >
+        <!-- Left item -->
+        <div class = "item"></div>
+
+        <!-- Middle item -->
+        <div class = "item_content">
+            <p class = "scene_title">
+                SCENE 3
+            </p>
+            
+            <div class = "title_padding">
+            </div>
+            
+            <p class = "along_title">
+                Untitled
+            </p>
+            
+            <div class = "content_padding"></div>
+            <p class="line_padding">
+                You wake up and feel a suffocating weight on your chest, keeping you locked down to your bed. You lay there for a while, waiting for it to lift.  It does, every so slightly, just enough for you to get up
+            </p>
+            <p class="line_padding">
+                You rub your eyes and glance out the window to your right. The grey skies are filled with angry storm clouds.
+            </p>
+            <p class="line_padding">
+                "Hey, what's the weather like today?" You ask your apartment's virtual assistant  
+            </p>     
+            <img class = "img_padding" src="../resources/holographic_assistant.png">
+            <p class="line_padding">
+                "You can expect a sunny day with a high of 82 degrees and a low of 65! Have a great day, Alex!"
+            </p>
+            <p class="line_padding">
+                The scene outside makes it clear that the weather report is unlikely to be true. It's never been reliable anyway. But it doesn't matter: You have to leave the house at some point. You pull yourself out from the layers of blankets and pillows you were hiding under and sigh.
+            </p>
+            <p class="line_padding">
+                A glance around reveals almost nothing. Just a couch, a lamp, a table, some basic cutlery and kitchen items... You still only have a minifridge, even though your studio apartment was supposed to come with a full fridge.
+            </p>
+            <p class="line_padding">
+                You pace over to the kitchen and get your morning brew started. The coffee maker, once sitting pathetically, lifelessly on the ground, in the corner of the room, whistles to life. It's one of the only luxuries you own.
+            </p>
+            <p class="line_padding">
+                The sky continues to darken as you stare outside, waiting on your coffee.
+            </p>
+            <img class = "img_padding" src="../resources/view_from_window.png">
+            <p class="line_padding">
+                Normally, your coffee would be accompanied with a nice novel and Tony Cat curled up in your lap. Unfortunately, your alarm signals an end to any relaxation you wanted to have this morning.
+            </p>
+            <p class="line_padding">
+                You throw on some clothes, grab your bag, and rush out the door with our skateboard.
+            </p>
+            <p class="line_padding">
+                As you step out of the apartment building, you notice the air smells odd. It's heavy and earthy. Some might call it pleasant, but it feels stifling to you.
+            </p>
+            <p class="line_padding">
+                You try to ignore it, getting ready to hop on your board, but you remember how bad the rain was the other day. All morning, you've seen signs that make you suspicious of the weather report. You just know you should go back and grab an umbrella, even if it means you'll be late for work.
+            </p>
+            <!-- Umbrella choice -->
+            <div class='row_container'>
+                <div class="item">
+                    <p class="semi_bold btn btn-center" style="flex-grow: 1;" onclick= "scene3_append('get_umbrella')">
+                        GO BACK INSIDE FOR AN UMBRELLA
+                    </p>
+                </div>
+                <div class="item">
+                    <p class="semi_bold btn btn-center" style="flex-grow: 1;" onclick= "scene3_append('skate')">
+                        SKATE OFF TO WORK 
+                    </p>
+                </div>
+            </div>
+
+            <div id="umbrella">
+            </div>
+            <p class="line_padding">
+
+            </p>
+
+        </div>
+        <!-- Right item -->
+        <div class = "item"></div>
     
+    
+    
+    
+    </div>
+    <script src="../scripts.js"></script> 
 </body>
 </html>
