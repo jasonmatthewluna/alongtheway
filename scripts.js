@@ -71,18 +71,3 @@
 // }
 
 // type();
-
-
-
-// var writing_icon = document.getElementById('svgContainer');
-var modal_bg = document.querySelector('.modal-bg');
-var modal_close = document.querySelector('.modal-close');
-function show_modal(){
-    modal_bg.classList.add('bg-active');
-    console.log('clickeddd');
-}
-
-modal_close.addEventListener('click', function(){
-    modal_bg.classList.remove('bg-active');
-    console.log('clickeddd');
-})
