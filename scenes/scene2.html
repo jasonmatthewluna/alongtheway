@@ -61,30 +61,22 @@
             <p>
                 He leaves without giving you any time to respond.
             </p>
-            <img class = "img_padding" src="../resources/Coffee_Machine.png">
+            <img class = "img_padding" src="../resources/Coffee_Machine.png" >
             <p class = "line_padding">
                 You grab your apron and throw it on, attempting a half-hearted “good morning!” and a wave towards your coworkers. The Alexas don’t even look up. That's fine. You didn't want to talk to them anyway.     
             </p>
 
-            <p>
+            <p class="line_padding">
                 There's a bit of time before open, so you decide to get teaching the new Alexa out of the way.
                 <span class = "bold"> But first, coffee. </span> 
                 Might be cliche, but you chose to work at a cafe for a reason.
             </p>
 
-            <object class = "img_padding" type="image/svg+xml" data="../resources/small_img_place.svg">
-                Your browser does not support SVG
-            </object>
-
-            <!-- IDK DO AN INPUT FORM FOR COFFEE? -->
-            <p class = "click_choose">
-                (CLICK to choose your coffee.)
-            </p>
 
             <p>
                 As you move away from the register, you open up the panel on the new Alexa's back, swiping your employee ID card. You press the red button labeled "Work Mode" and it flashes green, switching to "Learning Mode".    
             </p>
-            <img class = "img_padding" src="../resources/ID.png">
+            <img class = "img_padding" src="../resources/ID.png" height=500px>
 
             <p class = "line_padding">
                 You go to make your drink, but the old Alexa cuts you off as she rushes towards the espresso machines. Okay, that's rude. You brush it off, knowing the robot has never shown you any regard as a coworker, and continue forward before you realize that she's taken your order and already started making it.    
@@ -163,6 +155,20 @@
 
         </div>
         <div class = "item"></div>
+    </div>
+    <!-- Journal -->
+    <div class = "modal-bg">
+        <div class = "modal">
+            <h2>Is there anything that you regret doing?</h2>
+            <span class = "modal-close" onclick="close_modal();">X</span>
+            <form>
+                <textarea name="journal_entry" id="scene2_question1" col="50" placeholder="Type here."></textarea>
+            </form>
+            <div class="click_padding"></div>
+            <div class="container">
+                    <input type="image" src="../resources/submit_btn.png" onclick="get_journal_entry('scene2_question1'); close_modal();" >
+            </div>
+        </div>
     </div>
     <script src="../scripts.js"></script> 
 </body>

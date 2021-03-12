@@ -88,7 +88,7 @@ var feelings_selected = false;
 function scene1_append(choice) {
     
     var html = '';
-    if(rag_selected == false){
+    if(rag_selected == false && (choice=='dirty' || choice=='clean')){
         if(choice == 'dirty'){
             html+= `<p class = "line_padding"> You grab the old t-shirt. It's dirty but it works. And it's yours. Knowing Wally, she'll be relieved she doesn't have to look at the strange dirt that still clings to it. </p>`;
             console.log('selected dirty');
@@ -131,7 +131,7 @@ function scene1_append(choice) {
         rag_selected = true;
     }
 
-    else if(eavesdrop_selected == false){
+    else if(eavesdrop_selected == false && (choice=='eavesdrop' || choice=='ignore')){
 
         html+=`
         <p class = "line_padding">
@@ -169,13 +169,14 @@ function scene1_append(choice) {
                     [ IGNORE IT ]  
                 </p>
             </div>
-        </div>`;
+        </div>
+        `;
 
         eavesdrop_id.innerHTML+=(html)
         eavesdrop_selected = true;
     }
 
-    else if (cat_selected == false){
+    else if (cat_selected == false && (choice=='feed' || choice=='ignore_cat')){
         if(choice == "feed"){
             html+=`
             <p class = "line_padding">
@@ -220,7 +221,7 @@ function scene1_append(choice) {
         cat_selected = true;
     }
 
-    else if (comfort_selected == false){
+    else if (comfort_selected == false && choice ==''){
         html +=`
         <p class="line_padding">
             "Alex, it's okay. I'm glad you'll still be here though. Make sure to keep in touch, all right?" and she leaves.
@@ -255,7 +256,7 @@ function scene1_append(choice) {
         comfort_selected = true;
     }
 
-    else if (feelings_selected == false){
+    else if (feelings_selected == false && (choice=='fine' || choice=='scared')){
         if(choice == "fine"){
             html+=`
             <p class="line_padding">
@@ -305,13 +306,18 @@ function scene1_append(choice) {
             You pat Tony and go to bed.
         </p>
 
-        <!-- Next scene button -->
-        <div>
-            <p class="item semi_bold btn btn-center" style="flex-grow: 0;" onclick= "location.href = 'scene2.html'; ">
-                SCENE 2
+        <div class='row_container'>
+            <div class="item">
+            <p class = "btn btn-center" onclick="show_modal()" >
+                WRITE IN JOURNAL
             </p>
+            </div>
+            <div class="item">
+            <p class="item semi_bold btn btn-center" style="flex-grow: 0;" onclick= "location.href = 'scene2.html'; ">
+                NEXT
+            </p>
+            </div>
         </div>
-
         `
         feelings_id.innerHTML+=(html)
         feelings_selected = true;
@@ -328,9 +334,9 @@ var milk_selected = false;
 function scene2_append(choice) {
     
     html = ''
-    if(milk_selected==false){
+    if(milk_selected==false && (choice=='soymilk' || choice=='regmilk')){
         if(choice=="soymilk"){
-            localStorage.setItem("regmilk_selected", false);
+            sessionStorage.setItem("regmilk_selected", false);
             html+=`
             <p class="line_padding">
                 You make Loser's drink as quickly as you can, making sure to use the soy milk. When it's done, you slide the cup onto the pick-up counter and call out Loser's name. He picks it up and takes a long, drawn-out sip right in front of you. Satisfied, he gives you a nod of approval and leaves without saying thanks.
@@ -344,7 +350,7 @@ function scene2_append(choice) {
             `
         }
         else if(choice=="regmilk"){
-            localStorage.setItem("regmilk_selected", true);
+            sessionStorage.setItem("regmilk_selected", true);
             html+=`
             <p class="line_padding">
                 You make Loser's drink, but use regular milk instead of soy. When it's done, you slide the cup onto the pick-up counter with a secretive smile and call out Loser's name. He picks it up and takes a long, drawn-out sip right in front of you. As you watch, his eyebrows draw together in annoyance and his nostrils flare. <i>Uh oh.</i> It seems like you forgot that people can actually taste the difference between regular milk and soy milk.
@@ -382,9 +388,18 @@ function scene2_append(choice) {
         Just when your eyelids are starting to droop, you hear a small meow from across the room. Tony Cat trots over and jumps right through the black void and onto your lap. As you watch, the void ripples where it made contact with Tony, and surprisingly, it fades and disappears. From where he's squashing your legs, Tony purrs contentedly and burrows his head into your stomach. Your lips curl up in a hint of a smile.    
         </p>
 
-        <p class="semi_bold btn btn-center" onclick= "location.href = 'scene3.html'; ">
-            [TAKE ME TO THE NEXT DAY]
-        </p>
+        <div class='row_container'>
+            <div class="item">
+                <p class = "btn btn-center" onclick="show_modal()" >
+                    WRITE IN JOURNAL
+                </p>
+            </div>
+            <div class="item">
+                <p class="item semi_bold btn btn-center" style="flex-grow: 0;" onclick= "location.href = 'scene3.html'; ">
+                    NEXT
+                </p>
+            </div>
+        </div>
         `
         milk_id.innerHTML+=html;
         milk_selected = true;
@@ -392,12 +407,70 @@ function scene2_append(choice) {
     }
 }
 
+// Get journal entries
+function get_journal_entry(scene_question){
+    if(scene_question=="scene1_question1"){
+        var scene1_question1_id = document.getElementById("scene1_question1");
+        console.log("What do you want right now? " + scene1_question1_id.value);
+        sessionStorage.setItem("What do you want right now?", scene1_question1_id.value);
+    }
+    else if(scene_question=="scene1_question2"){
+        var scene1_question2_id = document.getElementById("scene1_question2");
+        console.log("What do you want for your future? " + scene1_question2_id.value);
+        sessionStorage.setItem("What do you want for your future?", scene1_question2_id.value);
+    }
+    else if(scene_question=="scene2_question1"){
+        var scene2_question1_id = document.getElementById("scene2_question1");
+        console.log("Is there anything that you regret doing? " + scene2_question1_id.value);
+        sessionStorage.setItem("Is there anything that you regret doing?", scene2_question1_id.value);
+    }
+    else if(scene_question=="scene4_question1"){
+        var scene4_question1_id = document.getElementById("scene4_question1");
+        console.log("What are three things you like about yourself? " + scene4_question1_id.value);
+        sessionStorage.setItem("What are three things you like about yourself?", scene4_question1_id.value);
+    }
+    else if(scene_question=="scene4_question2"){
+        var scene4_question2_id = document.getElementById("scene4_question2");
+        console.log("What are three things you felt today? Why did you feel them? " + scene4_question2_id.value);
+        sessionStorage.setItem("What are three things you felt today? Why did you feel them?", scene4_question2_id.value);
+    }
+    else if(scene_question=="scene5_question1"){
+        var scene5_question1_id = document.getElementById("scene5_question1");
+        console.log("What are you grateful for today? " + scene5_question1_id.value);
+        sessionStorage.setItem("What are you grateful for today?", scene5_question1_id.value);
+    }
+    else if(scene_question=="scene5_question2"){
+        var scene5_question2_id = document.getElementById("scene5_question2");
+        console.log("How do you want your story to continue? " + scene5_question2_id.value);
+        sessionStorage.setItem("How do you want your story to continue?", scene5_question2_id.value);
+    }
+}
+// 1. Getting song
+
+function get_fav_song(){
+    var fav_song_id = document.getElementById("fav_song")
+    console.log("fav song: " + fav_song_id.value);
+}
+
+
 var umbrella_id = document.getElementById("umbrella")
 var umbrella_selected = false;
 function scene3_append(choice) {
     var html='';
-    if(umbrella_selected==false){
+    if(umbrella_selected==false && (choice=='get_umbrella' || choice=='skate')){
         common_html= `
+            <p class="line_padding">
+                Enter your favorite song here:
+            </p>
+
+            <form>
+                <input type="text" id="fav_song" >
+                <br>
+                <input type="image" src="../resources/submit_btn.png" onclick="get_fav_song()">
+            </form>
+            
+            
+
             <p class="line_padding">
                 With this playing, the panic can't get to you. Your lips can't help but form a smile as you nod to the tune of the song—maybe today could be a good one.
             </p>
@@ -508,7 +581,7 @@ function scene3_append(choice) {
             After a quick shower to finally get rid of those bone chilling wet clothes, you settle on your two-person couch, alone, with a bowl of quick ready to eat oatmeal, watching as the stars glimmer in the distance but the rain smell lingers in the air.
         </p>
         <p class="semi_bold btn btn-center" onclick= "location.href = 'scene4.html'; ">
-            [ SCENE 4 ]
+            NEXT
         </p>
         `
         html+=common_html
@@ -521,16 +594,16 @@ function scene3_append(choice) {
 var quit_id = document.getElementById("quit")
 var quit_selected = false;
 // window.has_quit = false;
-// localStorage["has_quit"] = false;
-// localStorage.setItem("has_quit", false);
+// sessionStorage["has_quit"] = false;
+// sessionStorage.setItem("has_quit", false);
 
 function scene4_append(choice) {
     
     var html = '';
-    if(quit_selected == false){
+    if(quit_selected == false && (choice=='apologize' || choice=='quit')){
 
         if(choice=="apologize"){
-            localStorage.setItem("has_quit", false);
+            sessionStorage.setItem("has_quit", false);
             html+=`
                 <p class="line_padding">
                     "What is this?"
@@ -539,7 +612,7 @@ function scene4_append(choice) {
                     "Can you do anything right? Maybe I should've kept Wally instead of you! No, wait, Sarah was right, you're FIRED."
                 </p>
             `
-            if(localStorage.getItem("regmilk_selected")=="true"){
+            if(sessionStorage.getItem("regmilk_selected")=="true"){
                 html+=`
                     <p class="line_padding">
                         "You've been messing up ON PURPOSE with the customers. You could've really hurt someone."
@@ -560,8 +633,8 @@ function scene4_append(choice) {
             `
         }
         else if(choice=="quit"){
-            localStorage.setItem("has_quit", true);
-            console.log('scene 4 ' + localStorage.getItem("has_quit"))
+            sessionStorage.setItem("has_quit", true);
+            console.log('scene 4 ' + sessionStorage.getItem("has_quit"))
             html+=
             `
             <p class="line_padding">
@@ -604,6 +677,13 @@ function scene4_append(choice) {
         <p class="line_padding">
         You drag yourself out of bed. Tony Cat's running out of food, and you're starting to starve.
         </p>
+
+        <div class="item">
+            <p class = "btn btn-center" onclick="show_modal('scene4_prompt1')" >
+                WRITE IN JOURNAL
+            </p>
+        </div>
+
         <object class = "line_break_padding" type="image/svg+xml" data="../resources/line.svg">
             Your browser does not support SVG
         </object>
@@ -631,6 +711,13 @@ function scene4_append(choice) {
         <p class="line_padding">
             And after finally having a full day of just you, you go to bed and wake up, feeling refreshed for the first time in a long time.
         </p>
+
+        <div class="item">
+            <p class = "btn btn-center" onclick="show_modal('scene4_prompt2')" >
+                WRITE IN JOURNAL
+            </p>
+        </div>
+
         <object class = "line_break_padding" type="image/svg+xml" data="../resources/line.svg">
             Your browser does not support SVG
         </object>
@@ -641,7 +728,7 @@ function scene4_append(choice) {
             "Hey Alex! I'm in town today; want to meet up for lunch?"    
         </p>
         <p class="semi_bold btn btn-center" onclick= "location.href = 'scene5.html'; ">
-            [ SCENE 5 ]
+            NEXT
         </p>
         `
         quit_id.innerHTML +=html;
@@ -654,7 +741,7 @@ var if_quit_id = document.getElementById("if_quit");
 var if_quit_selected = false;
 
 function scene5_append(choice) {
-    var q = localStorage.getItem("has_quit");
+    var q = sessionStorage.getItem("has_quit");
     var html ='';
     if(if_quit_selected==false){
         console.log('scene 5.2 ' + q)
@@ -726,43 +813,198 @@ function scene5_append(choice) {
         </p>   
         <p class="line_padding">
         The deadline for your rent stares at you from where it's written on a huge Post-it note. But besides the fact that you're technically unemployed, you're feeling pretty relaxed and grateful for your day today. In fact, it's the first time in a long while that you didn't wish you could be a robot. The journal you used to write in when you were feeling stressed catches your eye.
-        </p>    
+        </p>  
+
+        <div class='row_container'>
+            <div class="item">
+                <p class = "btn btn-center" onclick="show_modal('scene5_prompt1')" >
+                    WRITE IN JOURNAL
+                </p>
+            </div>
+            <div class="item">
+                <p class = "btn btn-center" onclick="show_modal('scene5_view_journal')" >
+                    VIEW JOURNAL
+                </p>
+            </div>
+        </div>
         `
         if_quit_selected = true;
         if_quit_id.innerHTML += html;
     }
-    
-    
-    
 }
-// quit_id = document.getElementById("quit")
-// quit_selected = false;
-// function scene4_append(choice) {
-//     var html = '';
-//     if(quit_selected == false){
 
-//         if(choice=="apologize"){
 
-//         }
-//         else if(choice=="quit"){
-            
-//         }
-//         quit_id.innerHTML +=html;
-//         quit_selected = true;
-//     }
-    
-// }
+
+// 2. This code loads the IFrame Player API code asynchronously.
+var tag = document.createElement('script');
+
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+// 3. This function creates an <iframe> (and YouTube player)
+//    after the API code downloads.
+var player;
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('player', {
+    height: '390',
+    width: '640',
+    videoId: 'M7lc1UVf-VE',
+    events: {
+      'onReady': onPlayerReady,
+      'onStateChange': onPlayerStateChange
+    }
+  });
+}
+
+// 4. The API will call this function when the video player is ready.
+function onPlayerReady(event) {
+  event.target.playVideo();
+}
+
+// 5. The API calls this function when the player's state changes.
+//    The function indicates that when playing a video (state=1),
+//    the player should play for six seconds and then stop.
+var done = false;
+function onPlayerStateChange(event) {
+  if (event.data == YT.PlayerState.PLAYING && !done) {
+    setTimeout(stopVideo, 6000);
+    done = true;
+  }
+}
+function stopVideo() {
+  player.stopVideo();
+}
 
 // JOURNAL
-// var writing_icon = document.getElementById('svgContainer');
-// var modal_bg = document.querySelector('.modal-bg');
-// var modal_close = document.querySelector('.modal-close');
-// function show_modal(){
-//     modal_bg.classList.add('bg-active');
-//     console.log('clickeddd');
-// }
 
-// modal_close.addEventListener('click', function(){
-//     modal_bg.classList.remove('bg-active');
-//     console.log('clickeddd');
-// })
+var modal_bg = document.querySelector('.modal-bg');
+// var modal_close = document.querySelector('.modal-close');
+
+function show_modal(scene_prompt){
+
+    if(scene_prompt=="scene4_prompt1"){
+        var modal_id = document.getElementById('scene4') ;
+        modal_id.innerHTML = 
+        `
+        <div class = "modal">
+            <h2>What are three things you like about yourself?</h2>
+            <span class = "modal-close" onclick="close_modal();">X</span>
+            <form>
+                <textarea name="journal_entry" id="scene4_question1" col="50" placeholder="Type here."></textarea>
+            </form>
+            <div class="click_padding"></div>
+            <div class="container">
+                    <input type="image" src="../resources/submit_btn.png" onclick="get_journal_entry('scene4_question1'); close_modal();" >
+            </div>
+        </div>
+        `;
+        modal_bg.classList.add('bg-active');
+    }
+    else if(scene_prompt=="scene4_prompt2"){
+        var modal_id = document.getElementById('scene4') ;
+        modal_id.innerHTML = `
+        <div class = "modal">
+            <h2>What are three things you felt today? Why did you feel them?</h2>
+            <span class = "modal-close" onclick="close_modal();">X</span>
+            <form>
+                <textarea name="journal_entry" id="scene4_question2" col="50" placeholder="Type here."></textarea>
+            </form>
+            <div class="click_padding"></div>
+            <div class="container">
+                    <input type="image" src="../resources/submit_btn.png" onclick="get_journal_entry('scene4_question2'); close_modal();" >
+            </div>
+        </div>
+        `;
+        modal_bg.classList.add('bg-active');
+    }
+    else if(scene_prompt=="scene5_prompt1"){
+        var modal_id = document.getElementById('scene5') ;
+        modal_id.innerHTML = `
+        <div class = "modal">
+            <h2>What are you grateful for today?</h2>
+            <span class = "modal-close" onclick="close_modal();">X</span>
+            <form>
+                <textarea name="journal_entry" id="scene5_question1" col="50" placeholder="Type here."></textarea>
+            </form>
+            <div class="title_padding"></div>
+            <h2>How do you want your story to continue?</h2>
+            <form>
+                <textarea name="journal_entry" id="scene5_question2" col="50" placeholder="Type here."></textarea>
+            </form>
+            <div class="click_padding"></div>
+            <div class="container">
+                <input type="image" src="../resources/submit_btn.png" onclick="get_journal_entry('scene5_question1'); get_journal_entry('scene5_question2'); close_modal();" >
+            </div>
+        </div>
+        `;
+        modal_bg.classList.add('bg-active');
+    }
+    else if(scene_prompt=="scene5_view_journal"){
+        var modal_id = document.getElementById('scene5') ;
+        a1 = `<p style="font-family: 'Patrick Hand', cursive;">` + sessionStorage.getItem('What do you want right now?') + `</p>`;
+        a2 = `<p style="font-family: 'Patrick Hand', cursive;">` + sessionStorage.getItem('What do you want for your future?') + `</p>`;
+        a3 = `<p style="font-family: 'Patrick Hand', cursive;">` + sessionStorage.getItem('Is there anything that you regret doing?') + `</p>`;
+        a4 = `<p style="font-family: 'Patrick Hand', cursive;">` + sessionStorage.getItem('What are three things you like about yourself?') + `</p>`;
+        a5 = `<p style="font-family: 'Patrick Hand', cursive;">` + sessionStorage.getItem('What are three things you felt today? Why did you feel them?') + `</p>`;
+        a6 = `<p style="font-family: 'Patrick Hand', cursive;">` + sessionStorage.getItem('What are you grateful for today?') + `</p>`;
+        a7 = `<p style="font-family: 'Patrick Hand', cursive;">` + sessionStorage.getItem('How do you want your story to continue?') + `</p>`;
+
+        const question_padding = `<div class="title_padding"></div>`;
+        modal_id.innerHTML = 
+        question_padding + 
+        `<div class = "modal">
+            <h2>What do you want right now?</h2>
+            <span class = "modal-close" onclick="close_modal();">X</span>`
+        + a1 
+        + question_padding
+        +
+        `
+            <h2>What do you want for your future?</h2>
+        `
+        + a2 
+        + question_padding
+        +
+        `
+            <h2>Is there anything that you regret doing?</h2>
+        `
+        + a3 
+        + question_padding
+        +
+        `
+            <h2>What are three things you like about yourself?</h2>
+        `
+        + a4 
+        + question_padding
+        +
+        `
+            <h2>What are three things you felt today? Why did you feel them?</h2>
+        `
+        + a5 
+        + question_padding
+        +
+        `
+            <h2>What are you grateful for today?</h2>
+        `
+        + a6 
+        + question_padding
+        +
+        `
+            <h2>How do you want your story to continue?</h2>
+        `
+        + a7 
+        + question_padding
+        + '</div>';
+        modal_bg.classList.add('bg-active');
+    }
+
+    else{
+        modal_bg.classList.add('bg-active');
+        console.log('clickeddd');
+    }
+}
+
+function close_modal(){
+    modal_bg.classList.remove('bg-active');
+    console.log('submitted');
+}
