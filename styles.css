@@ -333,10 +333,9 @@ textarea {
     /* border: none; */
     /* background-image: url("resources/brown_paper.jpg"); */
     background-color: #ffffff;
-    font-size:24px;
+    font-size:30px;
     resize: none;
-    /* font-family: 'Source Sans Pro', sans-serif; */
-    font-family: 'Patrick Hand', cursive;
+    font-family: 'Source Sans Pro', sans-serif;
   }
 
 textarea::placeholder{

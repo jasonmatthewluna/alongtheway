@@ -942,14 +942,39 @@ function show_modal(scene_prompt){
     }
     else if(scene_prompt=="scene5_view_journal"){
         var modal_id = document.getElementById('scene5') ;
-        a1 = `<p style="font-family: 'Patrick Hand', cursive;">` + sessionStorage.getItem('What do you want right now?') + `</p>`;
-        a2 = `<p style="font-family: 'Patrick Hand', cursive;">` + sessionStorage.getItem('What do you want for your future?') + `</p>`;
-        a3 = `<p style="font-family: 'Patrick Hand', cursive;">` + sessionStorage.getItem('Is there anything that you regret doing?') + `</p>`;
-        a4 = `<p style="font-family: 'Patrick Hand', cursive;">` + sessionStorage.getItem('What are three things you like about yourself?') + `</p>`;
-        a5 = `<p style="font-family: 'Patrick Hand', cursive;">` + sessionStorage.getItem('What are three things you felt today? Why did you feel them?') + `</p>`;
-        a6 = `<p style="font-family: 'Patrick Hand', cursive;">` + sessionStorage.getItem('What are you grateful for today?') + `</p>`;
-        a7 = `<p style="font-family: 'Patrick Hand', cursive;">` + sessionStorage.getItem('How do you want your story to continue?') + `</p>`;
 
+        a1 = `<p>` + sessionStorage.getItem('What do you want right now?') + `</p>`;
+        a2 = `<p>` + sessionStorage.getItem('What do you want for your future?') + `</p>`;
+        a3 = `<p>` + sessionStorage.getItem('Is there anything that you regret doing?') + `</p>`;
+        a4 = `<p>` + sessionStorage.getItem('What are three things you like about yourself?') + `</p>`;
+        a5 = `<p>` + sessionStorage.getItem('What are three things you felt today? Why did you feel them?') + `</p>`;
+        a6 = `<p>` + sessionStorage.getItem('What are you grateful for today?') + `</p>`;
+        a7 = `<p>` + sessionStorage.getItem('How do you want your story to continue?') + `</p>`;
+
+        no_entry = `<p>No entry recorded for this day.</p>`;
+        
+        if(sessionStorage.getItem('What do you want right now?')==null){
+            a1= no_entry;
+        }
+        if(sessionStorage.getItem('What do you want for your future?')==null){
+            a2=no_entry;
+        }
+        if(sessionStorage.getItem('Is there anything that you regret doing?')==null){
+            a3=no_entry;
+        }
+        if(sessionStorage.getItem('What are three things you like about yourself?')==null){
+            a4=no_entry;
+        }
+        if(sessionStorage.getItem('What are three things you felt today? Why did you feel them?')==null){
+            a5=no_entry;
+        }
+        if(sessionStorage.getItem('What are you grateful for today?')==null){
+            a6=no_entry;
+        }
+
+
+        console.log
+        console.log("a1" + a1);
         const question_padding = `<div class="title_padding"></div>`;
         modal_id.innerHTML = 
         question_padding + 
