@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sample</title>
+    <link rel="icon" type="'favicon.ico'" href="resources/alexa.svg"/>
     <script src="noframework.waypoints.min.js"></script>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="'favicon.ico'" href="resources/alexa.svg"/>
@@ -12,37 +13,78 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"></head>
     <link href="<link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
-<body>
-
-    <div class = "container">
-        <object type="image/svg+xml" data="./resources/about_robot.svg">
-            Your browser does not support SVG
-          </object>
-          <p class = "along_title">
-            Along the Way
-        </p>
-        <p class = "btn about btn-center">
-            about
-        </p>
-        <p>
-            Along the Way is a short choose your own adventure-themed story of twenty-two-year-old Alex (they/them) who lives in a world overrun by robots, not of the cool, Kaiju-slaying variant. Instead, the bots are boring old service bots, brewing drinks or policing the streets. While Alex works their job at a local cafe as a barista—the only job they could get in their gap year after college—the robots begin to replace all of his human coworkers, the only ones who were able to keep Alex sane during the hustle and bustle of the store's comings and goings. As the world around Alex starts to change, the daily minutiae and cafe's strict schedule only begin to pick up in pace. The situation with the customers isn't much better: As much as Alex might try, the relationships are always transient and never familiar. Will Alex be able to keep up and move on to tomorrow or will they be left behind?
-
-            <!-- <span class = "typed-text" id = "intro-text"> 
-                
-            </span>
-            <span class = "cursor typing">
-                .
-            </span>  -->
-        </p>
-
-        <h3>
-            <button class = "btn btn-center" onclick= "location.href = 'scenes/scene1.html'; "> [ CLICK HERE TO BEGIN ]</button>
+    <link rel="preconnect" href="https://fonts.gstatic.com">    
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <body>
+    <div class = "top_padding"></div>
+    
+    <!-- Icons -->
+    <div class = "row_container_icons">
+        <div class="item_icons">
+            <object type="image/svg+xml" data="./resources/manager.svg">Your browser does not support SVG.</object>
+        </div>
+        <div class="item_icons">
+            <object type="image/svg+xml" data="./resources/about_robot.svg">Your browser does not support SVG.</object>
             
-        </h3>
-
+        </div>
+        <div class="item_icons">
+            <object type="image/svg+xml" data="./resources/alex.svg">Your browser does not support SVG.</object>
+        </div>
+    </div>
         
+
+
+    <!-- Title and About -->
+    <div class="container">
+        <h1 class = "along_title">
+            Along the Way
+          </h1>
     </div>
 
+    <!-- Summary of story-->
+    <div class = "row_container">
+        <!-- Left item -->
+        <div class = "item">
+        </div>
+
+        <!-- Middle item -->
+        <div class  = "item_content">
+            <p>
+                Along the Way is the choose your own adventure story of twenty-two-year-old Alex (they/them) who lives in a world overrun by robots, and not the cool Iron Man kind. Instead, the bots are boring old service bots, brewing drinks and mopping floors. While Alex works at a local cafe as a barista—the only job they could get after college—the robots begin to replace all of their human coworkers, the only ones who were able to keep Alex sane during the hustle and bustle of the store.                <!-- <span class = "typed-text" id = "intro-text"> 
+                </span>
+                <span class = "cursor typing">
+                    .
+                </span>  -->
+            </p>
+
+            <p class = "btn btn-center" onclick= "location.href = 'scenes/about.html'; ">ABOUT</p>
+            <p class = "btn btn-center" onclick= "location.href = 'scenes/scene1.html'; "> [ CLICK HERE TO BEGIN ]</p>
+
+        </div>
+
+        <!-- Right item -->
+        <div class = "item">
+
+            <p class = "writing btn btn-center" onclick="show_modal()" >
+                Write in Journal
+            </p>
+            <!-- <object class = "writing_icon" type="image/svg+xml" data="./resources/writing_icon.svg" >
+                Your browser does not support SVG
+                </object> -->
+
+            
+        </div>
+    </div>
+    
+    <div class = "modal-bg">
+        <div class = "modal">
+            <h2>Write your jornal here</h2>
+            <span class = "modal-close">X</span>
+            <form>
+                <textarea name="journal_entry" row="5" col="50" placeholder="Type here."></textarea>
+            </form>
+        </div>
+    </div>
     <!-- <div class = "container" id = "intro"> 
         <p>
             <span class = "typed-text" id = "intro-text"> 

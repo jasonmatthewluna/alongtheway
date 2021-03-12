@@ -2,6 +2,16 @@
     height: 100vh;
 } */
 
+/* Medium devices (landscape tablets, 768px and up) */
+/* @media only screen and (min-width: 768px) {
+    .item {max-width: 646px;}
+} */
+
+/* Large devices (laptops/desktops, 992px and up) */
+/* @media only screen and (min-width: 992px) {
+    .item {max-width: 646px;}
+} */
+
 * {
     margin: 0;
     padding: 0;
@@ -11,24 +21,27 @@
 body {
     /* font-family: 'Lora', serif; */
     font-family: 'Source Sans Pro', sans-serif;
-    font-size: xx-large;
-    background-color: #f5f5f5;
+    background-color: rgba(251,246,240,255);
+    /* font-size: xx-large; */
+
     /* font-family: 'Roboto', sans-serif; */
   }
 
 p {
-    font-size: 20px;
-    max-width: 45%; 
+    text-align:left;
+    font-size: 24px;
+    line-height: 150%;
+    /* max-width: 45%;  */
     /* margin: 0px auto;  */
-    margin-top: 1%;
-    margin-bottom: 2%;
+    /* margin-top: 1%;
+    margin-bottom: 3%; */
     overflow: hidden;
     line-height: 1.5;
 }
+ 
 .btn {
-     background-color: #f5f5f5; /* Green */
      /* border: 2px solid black; */
-     border: none;
+     border: 2px solid black;
      color: rgb(0, 0, 0);
      margin: 4px 2px;
      padding: 15px 32px;
@@ -73,7 +86,7 @@ p {
     transform: scale(1,1);
 }
 
-.about {
+/* .about {
     border:none;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: normal;
@@ -81,10 +94,12 @@ p {
 }
 
 .about:hover{
-    background-color: #ffffff;
     color: black;
-}
+} */
 
+.about_team{
+    text-align: center;
+}
 
 #intro {
     background-color: rgb(252, 227, 86);
@@ -93,11 +108,6 @@ p {
 
 #intro-text {
     color: rgb(0, 0, 0);
-}
-
-
-#img {
-    background-color: rgb(19, 207, 144);
 }
 
 img {
@@ -119,8 +129,8 @@ img {
 
 .container {
     /* height:100vh; */
-    margin-top: 5%;
-    margin-bottom: 5%;
+    /* margin-top: 5%;
+    margin-bottom: 5%; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -132,13 +142,32 @@ img {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin-bottom: 64px;
+}
+
+.row_container_icons{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content:center;
+    align-items: center;
+}
+
+.item_icons{
+    margin:20px;
 }
 
 .item{
     flex-grow: 1; 
     text-align:center;
     justify-content: center;
-    max-width: 15%;
+    /* max-width: 25%; */
+}
+
+.item_content{
+    flex-grow: 2;
+    text-align:center;
+    justify-content: center;
+    max-width: 646px; 
 }
 
 .item_bell{
@@ -153,10 +182,23 @@ img {
 }
 
 .along_title {
+    max-width: 500px; 
     text-align: center;
     font-weight:bold;
-    font-size: 125%;
+    font-size: 52px;
     font-family: 'Lora', serif;
+    /* I am guessing this is 5% */
+    letter-spacing: 0.05em; 
+    line-height: 135%;
+    
+    /* To center the title bc for some reason it gets shifted to left */
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.about_text{
+    letter-spacing: 0.05em;
 }
 
 .typed-text {
@@ -204,4 +246,130 @@ img {
     font-size: 36px;
 }
 
+.click_choose {
+    font-size: 16px;
+    text-align:center;
+    justify-content: center;
+}
 
+.top_padding{
+    margin-top: 136px;
+}
+
+.title_padding{
+    margin-top: 40px;
+}
+
+.content_padding{
+    margin-top: 98px;
+}
+
+.img_padding{
+    padding-top: 54px;
+    padding-bottom: 54px;
+}
+
+.line_padding {
+    margin-bottom: 24px;
+}
+
+.click_padding{
+    margin-top: 16px;
+}
+
+.rag_padding{
+    margin-top: 44px;
+}
+
+.line_break_padding{
+    padding-top: 98px;
+    padding-bottom: 98px;
+}
+
+.writing_icon {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.writing{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+/* Journal */
+*:focus {
+    outline: none;
+}
+
+.journal_entry_title{
+    font-family: 'Patrick Hand', cursive;
+    font-weight: bold;
+}
+textarea {
+    width: 100%;
+    height: 50vh;
+    padding: 12px 20px;
+    /* box-sizing: border-box; */
+    /* border: 2px solid #ccc;
+    border-radius: 4px; */
+    border: none;
+    background-image: url("resources/brown_paper.jpg");
+    background-color: #f8f8f8;
+    font-size: 30px;
+    resize: none;
+    /* font-family: 'Source Sans Pro', sans-serif; */
+    font-family: 'Patrick Hand', cursive;
+  }
+
+textarea::placeholder{
+    color: rgb(83, 83, 83);
+}
+
+.modal-bg{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100vh;
+      background: rgba(0,0,0,0.25);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s, opacity 0.25s;
+  }
+
+  .modal{
+      position: relative;
+      width:75%;
+      padding: 15px;
+      background-image: url("resources/brown_paper.jpg");
+      background-color: white;
+      border-radius: 8px;
+  }
+
+  .bg-active{
+      visibility: visible;
+      opacity:1;
+  }
+
+  .modal-close{
+      position: absolute;
+      top:10px;
+      right: 15px;
+      font-weight: bold;
+      font-size: 24px;
+      cursor: pointer;
+  }
+
+  /* Back Button */
+  .back_btn{
+      position: absolute;
+      top:133px;
+      left: 101px;
+  }
