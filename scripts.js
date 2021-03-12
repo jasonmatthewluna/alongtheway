@@ -670,10 +670,11 @@ function scene4_append(choice) {
         <p class="line_padding">
         You collapse onto your bed and fall asleep for the rest of the weekend. When you wake, you take sips of water from a leftover water bottle that's been out for the past week. Every now and then, you feel Tony Cat sort of prod at you, but you can't be bothered to get out of bed.
         </p>
+        <img class = "img_padding" src="../resources/Cat_Blackhole.png" width=300px></img>
         <p class="line_padding">
         After a couple days, you sit up in your bed. The black hole appears again, threatening to suck you back in, but Tony Cat jumps through it, tearing it to shreds.
         </p>
-        <img class = "img_padding" src="../resources/Cat_Blackhole.png" width=300px></img>
+        <img class = "img_padding" src="../resources/cat.png" width=300px></img>
         <p class="line_padding">
         You drag yourself out of bed. Tony Cat's running out of food, and you're starting to starve.
         </p>
@@ -815,18 +816,19 @@ function scene5_append(choice) {
         The deadline for your rent stares at you from where it's written on a huge Post-it note. But besides the fact that you're technically unemployed, you're feeling pretty relaxed and grateful for your day today. In fact, it's the first time in a long while that you didn't wish you could be a robot. The journal you used to write in when you were feeling stressed catches your eye.
         </p>  
 
-        <div class='row_container'>
-            <div class="item">
-                <p class = "btn btn-center" onclick="show_modal('scene5_prompt1')" >
-                    WRITE IN JOURNAL
-                </p>
-            </div>
-            <div class="item">
-                <p class = "btn btn-center" onclick="show_modal('scene5_view_journal')" >
-                    VIEW JOURNAL
-                </p>
-            </div>
+        <div class="item">
+            <p class = "btn btn-center" onclick="show_modal('scene5_prompt1')" >
+                WRITE IN JOURNAL
+            </p>
         </div>
+
+        <div class="title_padding"> </div>
+        <div class="item">
+            <p class = "btn btn-center" onclick="show_modal('scene5_prompt2')" >
+                HOW DO YOU WANT YOUR STORY TO CONTINUE?
+            </p>
+        </div>
+
         `
         if_quit_selected = true;
         if_quit_id.innerHTML += html;
@@ -927,14 +929,28 @@ function show_modal(scene_prompt){
             <form>
                 <textarea name="journal_entry" id="scene5_question1" col="50" placeholder="Type here."></textarea>
             </form>
-            <div class="title_padding"></div>
+            
+            <div class="click_padding"></div>
+            <div class="container">
+                <input type="image" src="../resources/submit_btn.png" onclick="get_journal_entry('scene5_question1'); show_modal('scene5_view_journal');" >
+            </div>
+        </div>
+        `;
+        modal_bg.classList.add('bg-active');
+    }
+    else if(scene_prompt=="scene5_prompt2"){
+        var modal_id = document.getElementById('scene5') ;
+        modal_id.innerHTML = `
+        <div class = "modal">
             <h2>How do you want your story to continue?</h2>
+            <span class = "modal-close" onclick="close_modal();">X</span>
             <form>
                 <textarea name="journal_entry" id="scene5_question2" col="50" placeholder="Type here."></textarea>
             </form>
+            
             <div class="click_padding"></div>
             <div class="container">
-                <input type="image" src="../resources/submit_btn.png" onclick="get_journal_entry('scene5_question1'); get_journal_entry('scene5_question2'); close_modal();" >
+                <input type="image" src="../resources/submit_btn.png" onclick="show_modal('scene5_thanks');" >
             </div>
         </div>
         `;
@@ -949,7 +965,6 @@ function show_modal(scene_prompt){
         a4 = `<p>` + sessionStorage.getItem('What are three things you like about yourself?') + `</p>`;
         a5 = `<p>` + sessionStorage.getItem('What are three things you felt today? Why did you feel them?') + `</p>`;
         a6 = `<p>` + sessionStorage.getItem('What are you grateful for today?') + `</p>`;
-        a7 = `<p>` + sessionStorage.getItem('How do you want your story to continue?') + `</p>`;
 
         no_entry = `<p>No entry recorded for this day.</p>`;
         
@@ -1013,16 +1028,21 @@ function show_modal(scene_prompt){
         `
         + a6 
         + question_padding
-        +
-        `
-            <h2>How do you want your story to continue?</h2>
-        `
-        + a7 
-        + question_padding
-        + '</div>';
+        ;
         modal_bg.classList.add('bg-active');
     }
-
+    else if(scene_prompt=="scene5_thanks"){
+        var modal_id = document.getElementById('scene5') ;
+        modal_id.innerHTML = `
+        <div class = "modal">
+            <div class = "container">
+                <h2>Thank you for coming Along The Way with us!</h2>
+                <span class = "modal-close" onclick="close_modal();">X</span>
+            <div>
+        </div>
+        `;
+        modal_bg.classList.add('bg-active');
+    }
     else{
         modal_bg.classList.add('bg-active');
         console.log('clickeddd');
