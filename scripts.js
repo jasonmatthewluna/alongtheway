@@ -838,7 +838,8 @@ function scene5_append(choice) {
         "What song was that? I loved it!" they gush.
         </p>   
         <p class="line_padding">
-        You look down, a little embarrassed at the attention, and reply, "[name of the song they chose in scene 3]. I'm glad you liked it, it's one of my favorites."
+        <--You look down, a little embarrassed at the attention, and reply, "[name of the song they chose in scene 3]. I'm glad you liked it, it's one of my favorites."-->
+        You look down, a little embarrassed at the attention, and reply, "I'm glad you liked it, it's one of my favorites."
         </p>   
         <p class="line_padding">
         They laugh and wave it off. 
