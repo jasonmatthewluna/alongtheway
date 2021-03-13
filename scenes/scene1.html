@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scene 1</title>
-    <link rel="icon" type="'favicon.ico'" href="resources/about_robot.svg"/>
-    <script src="noframework.waypoints.min.js"></script>
+    <script src="../noframework.waypoints.min.js"></script>
+    <link rel="icon" type="'favicon.ico'" href="../resources/alexa.svg"/>
     <link rel="stylesheet" href="../styles.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -18,7 +18,10 @@
     <div class = "top_padding"></div>
 
     <div class = "row_container" >
+        <!-- Left item -->
         <div class = "item"></div>
+
+        <!-- Middle item -->
         <div class = "item_content">
             <p class = "scene_title">
                 SCENE 1
@@ -32,12 +35,11 @@
             </h1>
             
             <div class = "content_padding"></div>
-            
-            <object type="image/svg+xml" data="../resources/large_img_place.svg">
+            <!-- <object type="image/svg+xml" data="../resources/large_img_place.svg">
                 Your browser does not support SVG
             </object>
 
-            <div class = "img_padding"></div>
+            <div class = "img_padding"></div> -->
 
             <!-- Start of scene1 content -->
             <p class = "line_padding">
@@ -90,32 +92,71 @@
 
             <div class = "rag_padding"></div>
             <div class = "row_container">
-                <object class = "item" type="image/svg+xml" data="../resources/img_place.svg">
-                    Your browser does not support SVG
-                </object>
-        
-                <object class = "item" type="image/svg+xml" data="../resources/img_place.svg">
-                    Your browser does not support SVG
-                </object>
-            </div>
-        
-            
-            <div class="row_container">
-                <p class="item semi_bold btn btn-center" onclick= "location.href = 'scene2.html'; ">
-                  [RAG 1]  
-                </p>
-                <P class="item semi_bold btn btn-center" onclick= "location.href = 'scene2.html'; ">
-                  [RAG 2]  
-                </P>
+                <div class="container">
+                    <img class = "item" src="../resources/Rag 1.png">
+                    <p class="item semi_bold btn btn-center" style="flex-grow: 0;" onclick= "scene1_append('clean')">
+                        [ RAG 1 ]  
+                    </p>
+                </div>
+
+                <div class="container">
+                    <img class = "item" src="../resources/Rag 2.png">
+                    <p class="item semi_bold btn btn-center" style="flex-grow: 0;" onclick= "scene1_append('dirty')">
+                        [  RAG 2 ]  
+                    </p>
+                </div>
+
             </div>
 
+            <!-- Text depending on what rag you choose -->
+            <div id = "rag">
+            </div>
+
+            <!-- Text depending on if you eavesdrop -->
+            <div id = "eavesdrop">
+            </div>
+
+            <!-- Text depending on if you choose to feed cat -->
+            <div id = "cat">
+            </div>
+
+            <!-- Text for comforting, does not change depending on choice -->
+            <div id = "comforting">
+            </div>
+
+            <div id = "feelings">
+            </div>
+            <!-- Journalling option -->
+            <!-- <p class = "btn btn-center" onclick="show_modal()" >
+                Write in Journal
+            </p> -->
 
         </div>
+        <!-- Right item -->
         <div class = "item"></div>
     </div>
 
-    <p>
+    <div class = "modal-bg">
+        <div class = "modal">
+            <h2>What do you want right now?</h2>
+            <span class = "modal-close" onclick="close_modal();">X</span>
+            <form>
+                <textarea name="journal_entry" id="scene1_question1" col="50" placeholder="Type here."></textarea>
+            </form>
+            <div class="title_padding"></div>
+            <h2>What do you want for your future?</h2>
+            <form>
+                <textarea name="journal_entry" id="scene1_question2" col="50" placeholder="Type here."></textarea>
+            </form>
+            <div class="click_padding"></div>
+            <div class="container">
+                <input type="image" src="../resources/submit_btn.png" onclick="get_journal_entry('scene1_question1'); get_journal_entry('scene1_question2'); close_modal();" >
+            </div>
+        </div>
+    </div>
 
-    </p>
+    <script src="../scripts.js"></script> 
 </body>
 </html>
+
+
