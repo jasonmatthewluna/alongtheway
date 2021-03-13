@@ -451,7 +451,6 @@ function get_fav_song(){
     <!-- var fav_song_id = document.getElementById("fav_song")
     console.log("fav song: " + fav_song_id.value); -->
     var player;
-    function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
        height: '0',
        width: '0',
