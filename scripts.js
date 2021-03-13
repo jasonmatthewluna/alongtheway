@@ -450,7 +450,7 @@ function get_journal_entry(scene_question){
 function get_fav_song(){
     <!-- var fav_song_id = document.getElementById("fav_song")
     console.log("fav song: " + fav_song_id.value); -->
-    var player;
+ 
     player = new YT.Player('player', {
     height: '390',
     width: '640',
@@ -462,6 +462,8 @@ function get_fav_song(){
   });
         
 }
+
+var player;
 
 function onPlayerReady(event) {
   event.target.playVideo();
