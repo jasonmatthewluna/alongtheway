@@ -43,8 +43,8 @@ p {
      /* border: 2px solid black; */
      border: 2px solid black;
      color: rgb(0, 0, 0);
-     margin: 4px 2px;
-     padding: 15px 32px;
+     margin: 0px 0px;
+     padding: 10px 10px;
      text-align: center;
      text-decoration: none;
      display: inline-block;
@@ -55,6 +55,7 @@ p {
      cursor: pointer;
      font-weight: bold;
      font-family: 'Roboto Condensed', sans-serif;
+     line-height: 150%;
    }
 
 /* .btn:hover {
@@ -74,7 +75,7 @@ p {
     height: 0.2rem;
     left:10%;
     bottom:0.3rem;
-    background: rgb(255, 238, 0);
+    background: rgb(0, 107, 156);
 }
 
 .btn-center::after {
