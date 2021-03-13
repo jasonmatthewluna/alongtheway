@@ -433,3 +433,13 @@ textarea::placeholder{
     font-size: 24px;
     font-family: 'Source Sans Pro', sans-serif;
   }
+
+@media (max-width: 414px) {
+    p {
+        font-size: 16px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+}
