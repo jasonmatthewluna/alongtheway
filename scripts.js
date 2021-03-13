@@ -448,19 +448,9 @@ function get_journal_entry(scene_question){
 // 1. Getting song
 
 function get_fav_song(){
-    <!-- var fav_song_id = document.getElementById("fav_song")
-    console.log("fav song: " + fav_song_id.value); -->
-    var player;
-    player = new YT.Player('player', {
-       height: '0',
-       width: '0',
-       videoId: 'M7lc1UVf-VE',
-       events: {
-         'onReady': onPlayerReady,
-         'onStateChange': onPlayerStateChange
-          }
-        });
-      }
+    var fav_song_id = document.getElementById("fav_song")
+    console.log("fav song: " + fav_song_id.value);
+    
 }
 
 
@@ -849,7 +839,6 @@ function scene5_append(choice) {
 
 
 
-<!--
 // 2. This code loads the IFrame Player API code asynchronously.
 var tag = document.createElement('script');
 
@@ -890,7 +879,6 @@ function onPlayerStateChange(event) {
 function stopVideo() {
   player.stopVideo();
 }
--->
 
 // JOURNAL
 
