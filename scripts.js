@@ -482,6 +482,7 @@ function scene3_append(choice) {
                 You almost crash headlong into a customer exiting the cafe and you scuff up your shoes trying to brake. By now, it's pouring and you're drenched.
             </p>
 
+<--
             <script>
 // MUSIC
 // 2. This code loads the IFrame Player API code asynchronously.
@@ -525,7 +526,7 @@ function scene3_append(choice) {
         player.stopVideo();
       }
             </script>
-
+-->
             
             `
         if(choice=="get_umbrella"){
