@@ -466,6 +466,7 @@ function scene3_append(choice) {
             <form>
                 <input type="text" id="fav_song" >
                 <br>
+                <div id="player"></div>
                 <input type="image" src="../resources/submit_btn.png" onclick="get_fav_song()">
             </form>
             
@@ -837,6 +838,7 @@ function scene5_append(choice) {
 
 
 
+<!--
 // 2. This code loads the IFrame Player API code asynchronously.
 var tag = document.createElement('script');
 
@@ -877,6 +879,7 @@ function onPlayerStateChange(event) {
 function stopVideo() {
   player.stopVideo();
 }
+-->
 
 // JOURNAL
 
